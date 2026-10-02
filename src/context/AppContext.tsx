@@ -148,22 +148,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.assets && parsed.users) {
-          setUsers(parsed.users);
-          setDepartments(parsed.departments);
-          setCategories(parsed.categories);
-          setAssets(parsed.assets);
-          setAllocations(parsed.allocations);
-          setTransfers(parsed.transfers);
-          setBookings(parsed.bookings);
-          setMaintenanceRequests(parsed.maintenanceRequests);
-          setAuditCycles(parsed.auditCycles);
-          setAuditItems(parsed.auditItems);
-          setSeats(parsed.seats);
-          setSeatAllocations(parsed.seatAllocations);
-          setSeatRequests(parsed.seatRequests);
-          setNotifications(parsed.notifications);
-          setActivityLogs(parsed.activityLogs);
-          if (parsed.currentUserId) {
+          setUsers(Array.isArray(parsed.users) ? parsed.users : INITIAL_USERS);
+          setDepartments(Array.isArray(parsed.departments) ? parsed.departments : INITIAL_DEPARTMENTS);
+          setCategories(Array.isArray(parsed.categories) ? parsed.categories : INITIAL_CATEGORIES);
+          setAssets(Array.isArray(parsed.assets) ? parsed.assets : INITIAL_ASSETS);
+          setAllocations(Array.isArray(parsed.allocations) ? parsed.allocations : INITIAL_ALLOCATIONS);
+          setTransfers(Array.isArray(parsed.transfers) ? parsed.transfers : INITIAL_TRANSFERS);
+          setBookings(Array.isArray(parsed.bookings) ? parsed.bookings : INITIAL_BOOKINGS);
+          setMaintenanceRequests(Array.isArray(parsed.maintenanceRequests) ? parsed.maintenanceRequests : INITIAL_MAINTENANCE);
+          setAuditCycles(Array.isArray(parsed.auditCycles) ? parsed.auditCycles : INITIAL_AUDIT_CYCLES);
+          setAuditItems(Array.isArray(parsed.auditItems) ? parsed.auditItems : INITIAL_AUDIT_ITEMS);
+          setSeats(Array.isArray(parsed.seats) ? parsed.seats : INITIAL_SEATS);
+          setSeatAllocations(Array.isArray(parsed.seatAllocations) ? parsed.seatAllocations : INITIAL_SEAT_ALLOCATIONS);
+          setSeatRequests(Array.isArray(parsed.seatRequests) ? parsed.seatRequests : INITIAL_SEAT_REQUESTS);
+          setNotifications(Array.isArray(parsed.notifications) ? parsed.notifications : INITIAL_NOTIFICATIONS);
+          setActivityLogs(Array.isArray(parsed.activityLogs) ? parsed.activityLogs : INITIAL_ACTIVITY_LOGS);
+          if (parsed.currentUserId && Array.isArray(parsed.users)) {
             const found = parsed.users.find((u: UserProfile) => u.id === parsed.currentUserId);
             if (found) setCurrentUser(found);
           }
