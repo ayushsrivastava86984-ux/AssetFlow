@@ -1,0 +1,6 @@
+{
+  "name": "AssetFlow",
+  "description": "Enterprise Asset & Resource Management System for tracking, allocating, booking, auditing, and maintaining physical assets and facilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
